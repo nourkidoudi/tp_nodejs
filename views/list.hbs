@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des joueurs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #0056b3;
+        }
+        .players-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .players-table thead {
+            background-color: #0056b3;
+            color: #fff;
+        }
+        .players-table th, .players-table td {
+            text-align: left;
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        .players-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .players-table img {
+            width: 50px;
+            border-radius: 5px;
+        }
+        .add-btn {
+            display: block;
+            text-align: center;
+            background-color: #0056b3;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            margin: 10px auto 0;
+            width: fit-content;
+        }
+        .add-btn:hover {
+            background-color: #004494;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Liste des joueurs</h1>
+        <table class="players-table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Numéro</th>
+                    <th>Rôle</th>
+                    <th>Photo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each joueurs}}
+                <tr>
+                    <td>{{this.nom}}</td>
+                    <td>{{this.numero_tshirt}}</td>
+                    <td>{{this.role}}</td>
+                    <td><img src="{{this.photo}}" alt="Photo"></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <a href="/add" class="add-btn">Ajouter un joueur</a>
+    </div>
+</body>
+</html>
